@@ -52,7 +52,7 @@ const seedData = async () => {
         schedule: 'Sat, Mon, Wed',
         time: '4:00 PM - 6:00 PM',
         room: 'Room 101',
-        monthlyFee: 1500,
+        courseFee: 1500,
         paymentInstructions: 'Send the monthly fee before submitting admission payment details.',
         paymentAccounts: [{ provider: 'bkash', accountNumber: '01341703221', accountName: "Rukon's Tutorial" }],
         status: 'active',
@@ -65,7 +65,7 @@ const seedData = async () => {
         schedule: 'Sun, Tue, Thu',
         time: '5:00 PM - 7:00 PM',
         room: 'Room 102',
-        monthlyFee: 1800,
+        courseFee: 1800,
         paymentInstructions: 'Use the listed receiving account and keep your transaction ID.',
         paymentAccounts: [{ provider: 'rocket', accountNumber: '01341703221', accountName: "Rukon's Tutorial" }],
         status: 'active',
@@ -78,7 +78,7 @@ const seedData = async () => {
         schedule: 'Fri, Sat, Mon',
         time: '6:00 PM - 8:00 PM',
         room: 'Room 103',
-        monthlyFee: 2000,
+        courseFee: 2000,
         paymentInstructions: 'Send payment to the receiving account before approval.',
         paymentAccounts: [{ provider: 'nagad', accountNumber: '01341703221', accountName: "Rukon's Tutorial" }],
         status: 'active',
@@ -91,7 +91,7 @@ const seedData = async () => {
         schedule: 'Daily',
         time: '7:00 AM - 9:00 AM',
         room: 'Main Hall',
-        monthlyFee: 2500,
+        courseFee: 2500,
         paymentInstructions: 'Bank transfer is accepted for this batch.',
         paymentAccounts: [{ provider: 'bank', accountNumber: 'AC-123456789', accountName: "Rukon's Tutorial" }],
         status: 'active',
@@ -224,14 +224,14 @@ const seedData = async () => {
 
     for (let i = 0; i < students.length; i++) {
       const batch = batches[studentData[i].batchIdx];
-      const { dueAmount, status } = calculatePaymentStatus(batch.monthlyFee, i % 3 === 0 ? batch.monthlyFee : i % 3 === 1 ? batch.monthlyFee / 2 : 0);
+      const { dueAmount, status } = calculatePaymentStatus(batch.courseFee, i % 3 === 0 ? batch.courseFee : i % 3 === 1 ? batch.courseFee / 2 : 0);
 
       await Payment.create({
         studentId: students[i]._id,
         batchId: batch._id,
         month: currentMonth,
-        payableAmount: batch.monthlyFee,
-        paidAmount: i % 3 === 0 ? batch.monthlyFee : i % 3 === 1 ? batch.monthlyFee / 2 : 0,
+        payableAmount: batch.courseFee,
+        paidAmount: i % 3 === 0 ? batch.courseFee : i % 3 === 1 ? batch.courseFee / 2 : 0,
         dueAmount,
         status,
         paymentMethod: i % 2 === 0 ? 'bkash' : 'nagad',
@@ -242,8 +242,8 @@ const seedData = async () => {
         studentId: students[i]._id,
         batchId: batch._id,
         month: prevMonth,
-        payableAmount: batch.monthlyFee,
-        paidAmount: batch.monthlyFee,
+        payableAmount: batch.courseFee,
+        paidAmount: batch.courseFee,
         dueAmount: 0,
         status: 'paid',
         paymentMethod: 'bank',

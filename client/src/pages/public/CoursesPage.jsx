@@ -54,7 +54,7 @@ const CoursesPage = () => {
                       <p>Schedule: {batch.schedule}</p>
                       <p>Time: {batch.time}</p>
                       <p>Room: {batch.room}</p>
-                      <p>Monthly Fee: <strong>{formatCurrency(batch.monthlyFee)}</strong></p>
+                      <p>course Fee: <strong>{formatCurrency(batch.courseFee)}</strong></p>
                       {paymentAccount && (
                         <p>Payment: <strong>{paymentMethodLabel(paymentAccount.provider)}</strong> {paymentAccount.accountNumber}</p>
                       )}

@@ -14,7 +14,7 @@ const emptyForm = {
   schedule: '',
   time: '',
   room: '',
-  monthlyFee: '',
+  courseFee: '',
   paymentInstructions: '',
   paymentProvider: 'bkash',
   paymentAccountNumber: '',

@@ -137,7 +137,7 @@ exports.createAdmission = async (req, res, next) => {
       });
     }
 
-    const payableAmount = batch ? Number(batch.monthlyFee || 0) : Number(req.body.payableAmount || 0);
+    const payableAmount = batch ? Number(batch.courseFee || 0) : Number(req.body.payableAmount || 0);
     const normalizedPaidAmount = wantsToPayNow ? Number(paidAmount || 0) : 0;
     const dueAmount = Math.max(0, payableAmount - normalizedPaidAmount);
 

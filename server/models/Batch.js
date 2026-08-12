@@ -11,7 +11,7 @@ const batchSchema = new mongoose.Schema(
     schedule: { type: String, required: true },
     time: { type: String, required: true },
     room: { type: String, default: '' },
-    monthlyFee: { type: Number, required: true, default: 0 },
+    courseFee: { type: Number, required: true, default: 0 },
     paymentInstructions: { type: String, default: '' },
     paymentAccounts: [
       {

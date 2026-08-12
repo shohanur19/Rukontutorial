@@ -55,7 +55,7 @@ const AdminPayments = () => {
       ...form,
       studentId,
       batchId: student?.batchId?._id || '',
-      payableAmount: student?.batchId?.monthlyFee || '',
+      payableAmount: student?.batchId?.courseFee || '',
       paymentMethod: account?.provider || form.paymentMethod || 'bkash',
       centerAccountNumber: account?.accountNumber || form.centerAccountNumber,
     });

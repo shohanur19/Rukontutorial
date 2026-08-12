@@ -28,7 +28,7 @@ const StudentBatch = () => {
           <p>📅 <strong>Schedule:</strong> {batch.schedule}</p>
           <p>🕐 <strong>Time:</strong> {batch.time}</p>
           <p>🏫 <strong>Room:</strong> {batch.room}</p>
-          <p>💰 <strong>Monthly Fee:</strong> {formatCurrency(batch.monthlyFee)}</p>
+          <p>💰 <strong>course Fee:</strong> {formatCurrency(batch.courseFee)}</p>
         </div>
       </div>
     </div>

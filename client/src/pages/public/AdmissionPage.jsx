@@ -160,7 +160,7 @@ const AdmissionPage = () => {
                   <option value="">Select batch</option>
                   {batches.map((batch) => (
                     <option key={batch._id} value={batch._id}>
-                      {batch.name} - {batch.subject} ({formatCurrency(batch.monthlyFee)})
+                      {batch.name} - {batch.subject} ({formatCurrency(batch.courseFee)})
                     </option>
                   ))}
                 </select>
@@ -170,7 +170,7 @@ const AdmissionPage = () => {
                 <div className="rounded-lg bg-gray-50 p-4 text-sm text-gray-700">
                   <p className="font-semibold text-gray-900">{selectedBatch.name}</p>
                   <p>{selectedBatch.classLevel} | {selectedBatch.subject} | {selectedBatch.schedule} | {selectedBatch.time}</p>
-                  <p>Payable amount: <strong>{formatCurrency(selectedBatch.monthlyFee)}</strong></p>
+                  <p>Payable amount: <strong>{formatCurrency(selectedBatch.courseFee)}</strong></p>
                   {selectedBatch.paymentInstructions && <p className="mt-2">{selectedBatch.paymentInstructions}</p>}
                   {activePaymentAccounts.length > 0 && (
                     <div className="mt-2 space-y-1">
